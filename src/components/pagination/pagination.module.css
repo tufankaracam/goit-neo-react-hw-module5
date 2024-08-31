@@ -1,0 +1,22 @@
+.pages{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:7px;
+}
+
+.pages button{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: none;
+    color: red;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.active{
+    background-color: darkgray;
+    color: white;
+    cursor: none;
+}

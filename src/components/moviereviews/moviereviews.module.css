@@ -1,0 +1,14 @@
+.container{
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.card{
+    border: 1px solid rgba(128, 128, 128, 0.274);
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}

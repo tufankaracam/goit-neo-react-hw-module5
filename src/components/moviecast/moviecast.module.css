@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding-top: 15px;
+}
+
+.card {
+  border: 1px solid rgba(128, 128, 128, 0.274);
+  width: 200px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+  flex: 1;
+}
+
+.text {
+  font-size: 11px;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.274);
+  padding: 5px;
+  height: 25px;
+  overflow: hidden;
+}
