@@ -20,16 +20,25 @@ export default function MovieCast() {
     getCastDetails();
   }, [movieId]);
 
-  return (
-    casts.length > 0 ?
-    (<ul className={styles.container}>
+  return casts.length > 0 ? (
+    <ul className={styles.container}>
       {casts?.map((cast) => (
         <li key={cast.id} className={styles.card}>
-          <img src={cast.profile_path ? `${imageLink}/${cast.profile_path}` : `https://placehold.co/200x200`} alt="" className={styles.image}/>
+          <img
+            src={
+              cast.profile_path
+                ? `${imageLink}/${cast.profile_path}`
+                : `https://placehold.co/200x200`
+            }
+            alt=""
+            className={styles.image}
+          />
           <div className={styles.text}>Name : {cast.name}</div>
           <div className={styles.text}>Char : {cast.character}</div>
         </li>
       ))}
-    </ul>) : (<Message text={'Any cast info not found'} />)
+    </ul>
+  ) : (
+    <Message text={"Any cast info not found"} />
   );
 }

@@ -19,13 +19,16 @@ export default function MovieReviews() {
     };
     getReviewDetails();
   }, [movieId]);
-  return reviews.length > 0 ?
-  (<ul className={styles.container}>
-    {reviews?.map((review) => (
-      <li className={styles.card} key={review.id}>
-        <h4>Author : {review.author}</h4>
-        <p>{review.content}</p>
-      </li>
-    ))}
-  </ul>) : (<Message text={'Any review info not found'} />)
+  return reviews.length > 0 ? (
+    <ul className={styles.container}>
+      {reviews?.map((review) => (
+        <li className={styles.card} key={review.id}>
+          <h4>Author : {review.author}</h4>
+          <p>{review.content}</p>
+        </li>
+      ))}
+    </ul>
+  ) : (
+    <Message text={"Any review info not found"} />
+  );
 }

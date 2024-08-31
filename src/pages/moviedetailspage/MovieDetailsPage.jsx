@@ -33,7 +33,7 @@ export default function MovieDetailsPage() {
   return (
     <div className={styles.container}>
       <button
-      className={styles.button}
+        className={styles.button}
         onClick={() => {
           navigate(-1);
         }}
@@ -42,19 +42,31 @@ export default function MovieDetailsPage() {
       </button>
       <div>
         <div className={styles.card}>
-          <div  className={styles.imagecontainer}>
-            <img className={styles.image} src={`${imageLink}${details?.poster_path}`} alt="" />
+          <div className={styles.imagecontainer}>
+            <img
+              className={styles.image}
+              src={
+                details?.poster_path
+                  ? `${imageLink}${details?.poster_path}`
+                  : `https://placehold.co/200x200`
+              }
+              alt=""
+            />
           </div>
           <div className={styles.infos}>
             <h2>{details?.title}</h2>
-            <p>User Score : {details?.vote_average && `${parseInt(details?.vote_average * 10)}%`}</p>
+            <p>
+              User Score :{" "}
+              {details?.vote_average &&
+                `${parseInt(details?.vote_average * 10)}%`}
+            </p>
             <h3>Overview</h3>
             <p>{details?.overview}</p>
             <h4>Genres</h4>
-            <p>{details?.genres?.map(genre=>(genre.name)).join(', ')}</p>
+            <p>{details?.genres?.map((genre) => genre.name).join(", ")}</p>
           </div>
         </div>
-        <div  className={styles.additional}>
+        <div className={styles.additional}>
           <p>Additional information</p>
           <ul>
             <li>
@@ -66,7 +78,7 @@ export default function MovieDetailsPage() {
           </ul>
         </div>
         <div>
-          <Outlet context={[movieId]}/>
+          <Outlet context={[movieId]} />
         </div>
       </div>
     </div>

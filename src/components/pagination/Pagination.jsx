@@ -1,25 +1,25 @@
 import styles from "./pagination.module.css";
 
 export default function Pagination({ page, totalPage, setPage }) {
-  
-    const handleClickBack = (e)=>{
-        setPage(page-1)
-    }
+  const handleClickBack = (e) => {
+    setPage(page - 1);
+  };
 
-    const handleClickNext = (e)=>{
-        setPage(page+1)
-    }
+  const handleClickNext = (e) => {
+    setPage(page + 1);
+  };
 
+  const handleClick = (e) => {
+    setPage(e.target.innerText);
+  };
 
-    const handleClick = (e)=>{
-        setPage(e.target.innerText)
-    }
-    
-    return (
+  return (
     <ul className={styles.pages}>
-        <li>
-          <button onClick={handleClickBack} disabled={page===1}>{'<'}</button>
-        </li>
+      <li>
+        <button onClick={handleClickBack} disabled={page === 1}>
+          {"<"}
+        </button>
+      </li>
       {page - 3 >= 1 && (
         <li>
           <button onClick={handleClick}>{1}</button>
@@ -36,7 +36,9 @@ export default function Pagination({ page, totalPage, setPage }) {
         </li>
       )}
       <li>
-        <button onClick={handleClick} className={styles.active} >{page}</button>
+        <button onClick={handleClick} className={styles.active}>
+          {page}
+        </button>
       </li>
       {page + 1 <= totalPage && (
         <li>
@@ -54,8 +56,10 @@ export default function Pagination({ page, totalPage, setPage }) {
         </li>
       )}
       <li>
-          <button onClick={handleClickNext} disabled={page===totalPage}>{'>'}</button>
-        </li>
+        <button onClick={handleClickNext} disabled={page === totalPage}>
+          {">"}
+        </button>
+      </li>
     </ul>
   );
 }

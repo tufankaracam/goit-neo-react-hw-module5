@@ -18,7 +18,10 @@ export default function MoviesPage() {
     const getMovies = async () => {
       try {
         if (searchParams.get("query")) {
-          const data = await searchMovies(searchParams.get("query"), searchParams.get("page") || 1);
+          const data = await searchMovies(
+            searchParams.get("query"),
+            searchParams.get("page") || 1
+          );
           setTotalResults(data.total_results);
           setTotalPages(data.total_pages);
           setPage(data.page);
@@ -36,21 +39,26 @@ export default function MoviesPage() {
     e.preventDefault();
     const form = e.target;
     if (form.elements.text.value.length > 0) {
-      setSearchParams({ query: form.elements.text.value, page:1 });
+      setSearchParams({ query: form.elements.text.value, page: 1 });
       form.reset();
     }
   };
 
   const handlePage = (page) => {
     const newParams = new URLSearchParams(searchParams);
-    newParams.set('page',page);
+    newParams.set("page", page);
     setSearchParams(newParams);
   };
 
   return (
     <div>
       <form onSubmit={handleSearch}>
-        <input className={styles.input} type="text" name="text" autoComplete="off" />
+        <input
+          className={styles.input}
+          type="text"
+          name="text"
+          autoComplete="off"
+        />
         <input className={styles.button} type="submit" value="Search" />
       </form>
 

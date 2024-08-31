@@ -1,18 +1,17 @@
-.container{
-    background-color: crimson;
-    padding: 15px 25px;
+.container {
+  background-color: crimson;
+  padding: 15px 25px;
 }
 
-.items{
-    display: flex;
-    gap: 15px;
+.items {
+  display: flex;
+  gap: 15px;
 }
 
-.item{
-    color: white;
-    
+.item {
+  color: white;
 }
 
-.item a.active{
-    border-bottom: 1px solid black;
+.item a.active {
+  border-bottom: 1px solid black;
 }
