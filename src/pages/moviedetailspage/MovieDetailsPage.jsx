@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import styles from "./moviedetailspage.module.css";
 import { getMovieDetails, imageLink } from "../../api/movie";
 import {
@@ -16,6 +16,9 @@ export default function MovieDetailsPage() {
   const [details, setDetails] = useState(null);
   const navigate = useNavigate();
   const location = useLocation();
+
+  const previousLocationRef = useRef(location.state?.from || "/");
+
   useEffect(() => {
     const getDetails = async () => {
       try {
@@ -30,14 +33,14 @@ export default function MovieDetailsPage() {
 
     getDetails();
   }, [movieId]);
+
+  const handleGoBack = (e) => {
+    navigate(previousLocationRef.current); // önceki konuma dönme
+  };
+
   return (
     <div className={styles.container}>
-      <button
-        className={styles.button}
-        onClick={() => {
-          navigate(-1);
-        }}
-      >
+      <button className={styles.button} onClick={handleGoBack}>
         {"<- Go Back"}
       </button>
       <div>
